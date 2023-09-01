@@ -21,6 +21,11 @@ const routes = [
     path: '/deposit',
     name: 'deposit',
     component: ()=> import('../views/depositPage.vue')
+  },
+  {
+    path: '/saquePage',
+    name: 'saquePage',
+    component: ()=> import('../views/saquePage.vue')
   }
 ]
 

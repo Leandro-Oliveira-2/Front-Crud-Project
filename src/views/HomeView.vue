@@ -35,7 +35,6 @@
               </div>
             <h2 class="title title-second">Bem vindo!</h2>           
             <form class="form" @submit.prevent="loginForm">
-
                 <label class="label-input">
                     <i class="far fa-envelope icon-modify"></i>
                     <input type="email" placeholder="email"  v-model="userData.email" >
@@ -62,14 +61,13 @@
             <h2 class="title title-second">Faça Login com sua conta</h2>
            ><!-- social media -->
             <p class="description description-second">ou use seu email cadastrado</p>
-         
         </div>
     </div>
   </div>
 </template>
 
 
-<script>
+<script >
 import axios from 'axios';
 
 export default {

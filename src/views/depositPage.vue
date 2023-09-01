@@ -1,70 +1,95 @@
 <template>
-    <div class="dropdown">
-      <button @click="toggleDropdown" class="dropdown-toggle">{{ selectedOption }}</button>
-      <ul v-if="isOpen" class="dropdown-menu">
-        <li v-for="option in options" :key="option" @click="selectOption(option)">{{ option }}</li>
-      </ul>
+  <div class="container-body">
+    <div class="centered-container">
+      <h2 class="pb-2 border-bottom">Saque</h2>
+      <form class="form">
+        <label class="label-input">
+          <i class="far fa-envelope icon-modify"></i>
+          <input type="text" placeholder="Valor"  >
+        </label>
+        <label class="label-input">
+            <i class="fas fa-lock icon-modify"></i>
+            <input type="text" placeholder="Descrição">
+        </label>
+        <button class="btn btn-second" type="submit">Enviar</button>
+        </form>
     </div>
-  </template>
-  
-  <script>
+  </div>
+</template>
+
+<script>
   export default {
-    name: 'depositPage'
-    ,data() {
-      return {
-        isOpen: false,
-        selectedOption: 'Select an option',
-        options: ['Option 1', 'Option 2', 'Option 3']
-      };
-    },
-    methods: {
-      toggleDropdown() {
-        this.isOpen = !this.isOpen;
+      name: 'depositPage',
+      data(){
+          retorn:{
+            
+          }
       },
-      selectOption(option) {
-        this.selectedOption = option;
-        this.isOpen = false;
+      methods:{
+        putValue(){
+
+        }
       }
-    }
-  };
-  </script>
-  
-  <style>
-  .dropdown {
-    position: relative;
-    display: inline-block;
   }
-  
-  .dropdown-toggle {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    min-width: 160px;
-    padding: 8px 0;
-    margin: 2px 0 0;
-    font-size: 14px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  }
-  
-  .dropdown-menu li {
-    padding: 6px 12px;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu li:hover {
-    background-color: #f1f1f1;
-  }
-  </style>
-  
+</script>
+
+<style>
+.container-body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #b9e2c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-container {
+  width: 550px;
+  height: 550px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+h2 {
+  margin-bottom: 60px;
+}
+
+
+.btn-second {
+  font-size: 20px;
+  background-color: #58af9b;
+  text-align: center; /* Adicionado para centralizar o texto */
+}
+
+.btn-second:hover {
+  background-color: #fff;
+  border: 1px solid #58af9b;
+  color: #58af9b;
+  text-align: center; /* Mantido para o estado de hover */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+}
+input:-webkit-autofill
+{
+    -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
+</style>

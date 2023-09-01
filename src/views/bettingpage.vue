@@ -322,7 +322,7 @@
   </div>
   <div class="st_wrap_table" data-table_id="1">
     <header class="st_table_header">
-      <h2>Holy shit :@</h2>
+      <h2>Apostas esportivas</h2>
       <div class="st_row">
         <div class="st_column _rank">Rank</div>
         <div class="st_column _name">Name</div>
@@ -799,7 +799,7 @@ pre{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e5f0e9;
+    background-color: #e4d387;
     background-size: cover;
     height: 100%;
     width: 100vw;
