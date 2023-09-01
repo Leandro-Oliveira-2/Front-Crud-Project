@@ -1,15 +1,15 @@
 <template>
   <div class="container-body">
     <div class="centered-container">
-      <h2 class="pb-2 border-bottom">Saque</h2>
-      <form class="form">
+      <h2 class="pb-2 border-bottom">Deposito</h2>
+      <form class="form" @submit.prevent="depositForm">
         <label class="label-input">
           <i class="far fa-envelope icon-modify"></i>
-          <input type="text" placeholder="Valor"  >
+          <input type="text" placeholder="Valor" v-model="postData.value" >
         </label>
         <label class="label-input">
             <i class="fas fa-lock icon-modify"></i>
-            <input type="text" placeholder="Descrição">
+            <input type="text" placeholder="Descrição" v-model="postData.description" >
         </label>
         <button class="btn btn-second" type="submit">Enviar</button>
         </form>
@@ -18,19 +18,39 @@
 </template>
 
 <script>
+import axios from 'axios';
+const user = localStorage.getItem("UserId");
+
   export default {
       name: 'depositPage',
-      data(){
-          retorn:{
-            
-          }
-      },
-      methods:{
-        putValue(){
-
-        }
+      data() {
+        return {
+          postData: {
+          userId: user,
+          transationType: "Deposito",
+          description: "",
+          value: "",
+          status: "Concluído" 
+          },
+    };
+  },
+    methods:{
+      async depositForm(){
+        this.postData.userId = parseInt(this.postData.userId);
+        this.postData.value = parseFloat(this.postData.value);
+        this.postData.value = -+this.postData.value;
+        console.log(this.postData.value)
+        try {
+      const response = await axios.post('http://localhost:8081/api/v1/transations/', this.postData);
+      this.postData.value = '';
+      this.postData.description = '';
+      console.log("Transação Concluída com Sucesso!", response);
+      } catch (error) {
+        console.error("Erro na Transação: ", error);
       }
-  }
+    }
+}
+    }
 </script>
 
 <style>

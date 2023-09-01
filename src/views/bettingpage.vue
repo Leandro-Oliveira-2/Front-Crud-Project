@@ -5,245 +5,137 @@
         <ul>
             <li><a href="#">Futebol</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                  
                 </ul>
             </li>
             <li><a href="#">Sinuca</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Tênis</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Basquete</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Vôlei</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Atletismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Saltos</a></li>
-                    <li><a href="#">Lançamentos</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                  
                 </ul>
             </li>
             <li><a href="#">Natação</a>
                 <ul>
-                    <li><a href="#">Provas</a></li>
-                    <li><a href="#">Estilos</a></li>
-                    <li><a href="#">Nadadores</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Rugby</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Ciclismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Ciclistas</a></li>
-                    <li><a href="#">Roteiros</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                   
                 </ul>
             </li>
             <li><a href="#">Futebol</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Sinuca</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Tênis</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Basquete</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Vôlei</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Atletismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Saltos</a></li>
-                    <li><a href="#">Lançamentos</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                  
                 </ul>
             </li>
             <li><a href="#">Natação</a>
                 <ul>
-                    <li><a href="#">Provas</a></li>
-                    <li><a href="#">Estilos</a></li>
-                    <li><a href="#">Nadadores</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Rugby</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Ciclismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Ciclistas</a></li>
-                    <li><a href="#">Roteiros</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                   
                 </ul>
             </li>
             <li><a href="#">Futebol</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Sinuca</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Tênis</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Torneios</a></li>
-                    <li><a href="#">Jogadores</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Basquete</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Vôlei</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Atletismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Saltos</a></li>
-                    <li><a href="#">Lançamentos</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                  
                 </ul>
             </li>
             <li><a href="#">Natação</a>
                 <ul>
-                    <li><a href="#">Provas</a></li>
-                    <li><a href="#">Estilos</a></li>
-                    <li><a href="#">Nadadores</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Rugby</a>
                 <ul>
-                    <li><a href="#">Jogos</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Times</a></li>
-                    <li><a href="#series">Campeonatos</a></li>
-                    <li><a href="#">Notícias</a></li>
+                    
                 </ul>
             </li>
             <li><a href="#">Ciclismo</a>
                 <ul>
-                    <li><a href="#">Corridas</a></li>
-                    <li><a href="#">Ciclistas</a></li>
-                    <li><a href="#">Roteiros</a></li>
-                    <li><a href="#series">Competições</a></li>
-                    <li><a href="#">Notícias</a></li>
+                   
                 </ul>
             </li>
         </ul>
@@ -605,8 +497,8 @@
       <header class="header-heigth"><h1 style="margin-left: 5%;">Seja bem vindo!</h1></header>
       <nav class="nav-rigth">
         <ul>
-          <li><a href="/">Primeiro deposito.</a></li>
-          <li style="margin-top:10px"><a href="#">Desejar fazer um saque?</a></li>
+          <li><a href="/deposit">Primeiro deposito.</a></li>
+          <li style="margin-top:10px"><a href="/saque">Desejar fazer um saque?</a></li>
         </ul>
       </nav>
     </aside>
@@ -614,8 +506,6 @@
 </template>
     
   <script>
-  
-    import axios from 'axios';
     
     export default {
       name: 'betting',
@@ -625,7 +515,16 @@
           }
       },
       methods: {
-        
+        verificarUser() {
+          const user = localStorage.getItem("UserId");
+          console.log(user)
+          if(user === null || user == ''){
+            this.$router.push({ name: 'about' });
+          }
+        },
+      },
+      mounted() {
+        this.verificarUser();
       }
     }
     </script>

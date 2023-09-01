@@ -85,9 +85,12 @@ export default {
       console.log("Formulário de login enviado!");
       try {
         const response = await axios.post('http://localhost:8081/api/v1/auth/', this.userData);
-        console.log('Resposta da autenticação: ', response.data);
-        this.$router.push({name: 'betting'})
-      } catch (error) {
+        console.log('Resposta da autenticação: Verificando aqui ', response.data);
+          localStorage.setItem('UserId', response.data.user.id);
+          console.log('Informações de usuário armazenadas no Local Storage.');
+          this.$router.push({ name: 'betting' });
+        } 
+        catch (error) {
         console.error('Erro ao fazer login:', error);
       }
     },

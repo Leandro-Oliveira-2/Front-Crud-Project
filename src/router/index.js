@@ -23,7 +23,7 @@ const routes = [
     component: ()=> import('../views/depositPage.vue')
   },
   {
-    path: '/saquePage',
+    path: '/saque',
     name: 'saquePage',
     component: ()=> import('../views/saquePage.vue')
   }
