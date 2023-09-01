@@ -1,6 +1,5 @@
 <template>
-<div id="myDiv">
-    <div class="container" :key="activeContent">
+    <div class="container" >
       <div class="content first-content">
         <div class="first-column">
             <h2 class="title title-primary">Bem Vindo de Volta!</h2>
@@ -35,16 +34,16 @@
               </ul>
               </div>
             <h2 class="title title-second">Bem vindo!</h2>           
-            <form class="form" submit.prevent="loginForm">
+            <form class="form" @submit.prevent="loginForm">
 
-                <label class="label-input" for="">
+                <label class="label-input">
                     <i class="far fa-envelope icon-modify"></i>
-                    <input type="email" placeholder="Email"  v-model="userData.email" >
+                    <input type="email" placeholder="email"  v-model="userData.email" >
                 </label>
 
-                <label class="label-input" for="">
+                <label class="label-input">
                     <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Senha"  v-model="userData.passwordHash">
+                    <input type="password" placeholder="Senha"  v-model="userData.password">
                 </label>
 
                 <a class="password" href="#">Esqueceu sua senha?</a>
@@ -62,53 +61,45 @@
         <div class="second-column">
             <h2 class="title title-second">Faça Login com sua conta</h2>
            ><!-- social media -->
-            <p class="description description-second">ou use seu Email cadastrado</p>
+            <p class="description description-second">ou use seu email cadastrado</p>
          
         </div>
     </div>
   </div>
-</div>
 </template>
+
 
 <script>
 import axios from 'axios';
 
 export default {
   name: 'HomeView',
-  data () {
+  data() {
     return {
-       userData: {
+      userData: {
         email: '',
         password: '',
-      }
+      },
     };
   },
   methods: {
-    async loginForm (){
-      console.log(this.userData)
+    async loginForm() {
+      console.log("Formulário de login enviado!");
       try {
-        const response = await axios.post("http://localhost:8081/api/v1/auth/", this.userData).response((response)=>{
-            console.log('Usuário cadastrado: ', response.data);
-        }, (error) =>{
-            console.error("Erro ao cadastrar usuário:", error)
-        });
-        return response
-
-
-        this.userData = {
-          email: '',
-          passwordHash: '',
-        };
-      }catch (error) {
-        console.error("Erro ao cadastrar usuário:", error)
-      } 
-    }, onSignInClick(){
-        this.$router.push({ name: 'about' });
-    }
-  }
-
-}
+        const response = await axios.post('http://localhost:8081/api/v1/auth/', this.userData);
+        console.log('Resposta da autenticação: ', response.data);
+        this.$router.push({name: 'betting'})
+      } catch (error) {
+        console.error('Erro ao fazer login:', error);
+      }
+    },
+    onSignInClick() {
+      this.$router.push({ name: 'about' });
+    },
+  },
+};
 </script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
@@ -124,11 +115,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6e2121;
-    background: linear-gradient(-45deg, #ee7752, #ffcc33, #9cde9f, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 48.1vw;
+    background-color: #215733;
+    background-size: cover;
+    height: 100vh;
     width: 100vw;
 }
 
@@ -150,10 +139,7 @@ body {
 .custom-select:hover {
     background-color: #ecf0f1;
 }
-.custom-select:focus {
-    outline: none;
-    background-color: #ecf0f1;
-}
+
 
 .slide-enter-active, .slide-leave-active {
   transition: opacity 0.8s, transform 0.8s;
@@ -184,8 +170,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-
-
 }
 .content::before {
     content: "";
@@ -194,7 +178,7 @@ body {
     background-position: center;
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.6);
-    width: 40%;
+    width: 43%;
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -351,8 +335,6 @@ input:-webkit-autofill
     text-transform: capitalize;
 }
 
-
-
 .sign-in-js .first-content .first-column {
     z-index: -1;
 }
@@ -393,77 +375,6 @@ input:-webkit-autofill
     z-index: 13;
 }
 
-
-/* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
-.sign-in-js .first-content .second-column {
-
-    z-index: -1;
-    position: relative;
-    animation: deslocamentoEsq 0.8s; /*MODIFIQUEI DE 3s PARA 0.8s*/
-}
-
-.sign-up-js .second-content .second-column {
-    position: relative;
-    z-index: -1;
-    animation: deslocamentoDir 0.8s; /*MODIFIQUEI DE 3s PARA 0.8s*/
-}
-
-/*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
-
-@keyframes deslocamentoEsq {
-
-    from {
-        left: 0;
-        opacity: 1;
-        z-index: 12;
-    }
-
-    25% {
-        left: -80px;
-        opacity: .5;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
-    }
-
-    50% {
-        left: -100px;
-        opacity: .2;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
-    }
-
-    to {
-        left: -110px;
-        opacity: 0;
-        z-index: -1;
-    }
-}
-
-
-@keyframes deslocamentoDir {
-
-    from {
-        left: 0;
-        z-index: 12;
-    }
-
-    25% {
-        left: 80px;
-        /* z-index: 12;  NÃO HÁ NECESSIDADE*/
-    }
-
-    50% {
-        left: 100px;
-        /* z-index: 12; NÃO HÁ NECESSIDADE*/
-        /* background-color: yellow;  Exemplo que dei no vídeo*/
-    }
-
-    to {
-        left: 110px;
-        z-index: -1;
-    }
-}
-
-
-/*ANIMAÇÃO CSS*/
 
 @keyframes slidein {
 
@@ -520,164 +431,28 @@ input:-webkit-autofill
         width: 40%;
     }
 }
-
-/*VERSÃO MOBILE*/
-@media screen and (max-width: 1040px) {
-    .content {
-        width: 100%;
-        height: 100%;
-    }
-
-    .content::before {
-        width: 100%;
-        height: 40%;
-        top: 0;
-        border-radius: 0;
-    }
-    .first-content, .second-content {
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .first-column, .second-column {
-        width: 100%;
-    }
-
-    .sign-in-js .content::before {
-        top: 60%;
-        left: 0;
-        border-radius: 0;
-
-    }
-
-    .form {
-        width: 90%;
-    }
-
-    /* ANIMAÇÃO MOBILE CSS*/
-
-    @keyframes deslocamentoEsq {
-
-        from {
-            top: 0;
-            opacity: 1;
-            z-index: 12;
-        }
-
-        25% {
-            top: -80px;
-            opacity: .5;
-            /* z-index: 12; NÃO HÁ NECESSIDADE */
-        }
-
-        50% {
-            top: -100px;
-            opacity: .2;
-            /* z-index: 12; NÃO HÁ NECESSIDADE */
-        }
-
-        to {
-            top: -110px;
-            opacity: 0;
-            z-index: -1;
-        }
-    }
-
-
-    @keyframes deslocamentoDir {
-
-        from {
-            top: 0;
-            z-index: 12;
-        }
-
-        25% {
-            top: 80px;
-            /* z-index: 12;  NÃO HÁ NECESSIDADE*/
-        }
-
-        50% {
-            top: 100px;
-            /* z-index: 12; NÃO HÁ NECESSIDADE*/
-            /* background-color: yellow;  Exemplo que dei no vídeo*/
-        }
-
-        to {
-            top: 110px;
-            z-index: -1;
-        }
-    }
-
-
-
-    @keyframes slidein {
-
-        from {
-            top: 0;
-            height: 40%;
-        }
-
-        25% {
-            top: 5%;
-            height: 50%;
-        }
-
-        50% {
-            top: 25%;
-            height: 60%;
-        }
-
-        75% {
-            top: 45%;
-            height: 50%;
-        }
-
-        to {
-            top: 60%;
-            height: 40%;
-        }
-    }
-
-    @keyframes slideout {
-
-        from {
-            top: 60%;
-            height: 40%;
-        }
-
-        25% {
-            top: 45%;
-            height: 50%;
-        }
-
-        50% {
-            top: 25%;
-            height: 60%;
-        }
-
-        75% {
-            top: 5%;
-            height: 50%;
-        }
-
-        to {
-            top: 0;
-            height: 40%;
-        }
-    }
-
+button:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1s infinite;
 }
 
-@media screen and (max-width: 740px) {
-    .form {
-        width: 50%;
-    }
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
 }
 
-@media screen and (max-width: 425px) {
-    .form {
-        width: 100%;
-    }
+input:focus {
+    outline: none;
 }
-
 </style>
