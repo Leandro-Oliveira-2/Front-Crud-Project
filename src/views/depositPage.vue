@@ -15,11 +15,23 @@
         </form>
     </div>
   </div>
+
+  <button type="button" class="btn btn-outline-light" v-on:click="mudarPag()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16" routerLink="betting">
+      <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+    </svg>
+  </button>
+
+
 </template>
 
 <script>
 import axios from 'axios';
+import Alert from '@/utils/Alert'
+
+
 const user = localStorage.getItem("UserId");
+
 
   export default {
       name: 'depositPage',
@@ -38,22 +50,51 @@ const user = localStorage.getItem("UserId");
       async depositForm(){
         this.postData.userId = parseInt(this.postData.userId);
         this.postData.value = parseFloat(this.postData.value);
-        this.postData.value = -+this.postData.value;
-        console.log(this.postData.value)
+        this.postData.value = this.postData.value;
+
         try {
-      const response = await axios.post('http://localhost:8081/api/v1/transations/', this.postData);
+      const response = await axios.post('http://localhost:8081/api/v1/transations/deposit', this.postData);
       this.postData.value = '';
       this.postData.description = '';
-      console.log("Transação Concluída com Sucesso!", response);
-      } catch (error) {
-        console.error("Erro na Transação: ", error);
-      }
+      
+      // Atualize o saldo no localStorage
+      const userAtualizado = JSON.parse(localStorage.getItem("Usuario"));
+      userAtualizado.user.saldo = response.data.saldoAtual;
+      localStorage.setItem("Usuario", JSON.stringify(userAtualizado));
+
+      Alert("Transação Concluída com Sucesso!");
+    } catch (error) {
+      Alert("Erro na transação!");
+      document.location.reload();
     }
+    },
+    verificarUser() {
+          const user = localStorage.getItem("UserId");
+          console.log(user)
+          if(user === null || user == ''){
+            this.$router.push({ name: 'about' });
+          }
+        },
+    mudarPag(){
+      this.$router.push({ name: 'betting' });
+    }
+  }
 }
-    }
 </script>
 
 <style>
+.label-input {
+   margin-block-end: 30px;
+}
+
+
+button.btn.btn-outline-light {
+  position: fixed;
+  top: 90%;
+  width: 80px;;
+  margin-left: 80px;
+}
+
 .container-body {
   width: 100vw;
   height: 100vh;
@@ -74,6 +115,7 @@ const user = localStorage.getItem("UserId");
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  margin-block-end: 10vh;
 }
 
 

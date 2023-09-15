@@ -1,16 +1,17 @@
 <template>
-    <div class="container" >
+    <div class="container">
+      <!-- Primeiro Conteúdo -->
       <div class="content first-content">
         <div class="first-column">
-            <h2 class="title title-primary">Bem Vindo de Volta!</h2>
-            <p class="description description-primary">Mantenha-se conectado com a gente</p>
-            <p class="description description-primary">Faça login com a sua melhor conta</p>
-            <button id="signin" class="btn btn-primary" v-on:click="onSignInClick()">Cadastro</button>
+          <h2 class="title title-primary">Bem Vindo de Volta!</h2>
+          <p class="description description-primary">Mantenha-se conectado conosco</p>
+          <p class="description description-primary">Faça login com a sua melhor conta</p>
+          <button id="signin" class="btn btn-primary" v-on:click="onSignInClick()">Cadastro</button>
         </div>
         <div class="second-column">
-            <div class="social-media">
-                <ul class="list-social-media">
-                  <a class="link-social-media" href="#">
+          <div class="social-media">
+            <ul class="list-social-media">
+                <a class="link-social-media" href="#">
                       <li class="item-social-media">
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                           <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
@@ -31,43 +32,46 @@
                         </svg>
                       </li>
                   </a>
-              </ul>
-              </div>
-            <h2 class="title title-second">Bem vindo!</h2>           
-            <form class="form" @submit.prevent="loginForm">
-                <label class="label-input">
-                    <i class="far fa-envelope icon-modify"></i>
-                    <input type="email" placeholder="email"  v-model="userData.email" >
-                </label>
+            </ul>
+          </div>
+          <h2 class="title title-second">Bem vindo!</h2>
+          <form class="form" @submit.prevent="loginForm">
+            <label class="label-input">
+                <i class="far fa-envelope icon-modify"></i>
+                <input type="email" placeholder="email"  v-model="userData.email" >
+            </label>
 
-                <label class="label-input">
-                    <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Senha"  v-model="userData.password">
-                </label>
+            <label class="label-input">
+                <i class="fas fa-lock icon-modify"></i>
+                <input type="password" placeholder="Senha"  v-model="userData.password">
+            </label>
 
-                <a class="password" href="#">Esqueceu sua senha?</a>
-                <button class="btn btn-second" type="submit">Login</button>
-            </form>
-        </div><!-- second column -->
-    </div><!-- first content -->
-    <div class="content second-content">
+            <a class="password" href="#">Esqueceu sua senha?</a>
+            <button class="btn btn-second" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Segundo Conteúdo -->
+      <div class="content second-content">
         <div class="first-column">
-            <h2 class="title title-primary">Olá Amigo!</h2>
-            <p class="description description-primary">Insira seus dados pessoais</p>
-            <p class="description description-primary">e comece a jornada conosco</p>
-            <button id="signup" class="btn btn-primary" >inscrever-se</button>
+          <h2 class="title title-primary">Olá Amigo!</h2>
+          <p class="description description-primary">Insira seus dados pessoais</p>
+          <p class="description description-primary">e comece a jornada conosco</p>
+          <button id="signup" class="btn btn-primary">inscrever-se</button>
         </div>
         <div class="second-column">
-            <h2 class="title title-second">Faça Login com sua conta</h2>
-           ><!-- social media -->
-            <p class="description description-second">ou use seu email cadastrado</p>
+          <h2 class="title title-second">Faça Login com sua conta</h2>
+          <!-- ... (conteúdo do segundo bloco) -->
         </div>
+      </div>
     </div>
-  </div>
-</template>
+  </template>
+
 
 
 <script >
+import Alert from '@/utils/Alert'
 import axios from 'axios';
 
 export default {
@@ -85,41 +89,46 @@ export default {
       console.log("Formulário de login enviado!");
       try {
         const response = await axios.post('http://localhost:8081/api/v1/auth/', this.userData);
-        console.log('Resposta da autenticação: Verificando aqui ', response.data);
-          localStorage.setItem('UserId', response.data.user.id);
-          console.log('Informações de usuário armazenadas no Local Storage.');
-          this.$router.push({ name: 'betting' });
+        
+        localStorage.setItem('UserId', response.data.user.id);
+        localStorage.setItem('Usuario', JSON.stringify(response.data));
+
+        this.$router.push({ name: 'betting' });
         } 
         catch (error) {
-        console.error('Erro ao fazer login:', error);
+        Alert("Erro no login")
       }
     },
     onSignInClick() {
       this.$router.push({ name: 'about' });
     },
+    limparStorage(){
+      if(localStorage.getItem(Usuario)){
+        window.localStorage.clear();
+      }
+    }
   },
+  mounted (){
+    this.limparStorage()
+  }
 };
 </script>
 
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #215733;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+  display: flex;
+  flex-direction: column; /* Alinhar o conteúdo verticalmente */
+  justify-content: center; /* Centralizar verticalmente */
+  align-items: center; /* Centralizar horizontalmente */
+  background-color: #89f3ac;
+  height: 100vh; /* Ocupar toda a altura da tela */
+  width:100vw; /* Ocupar toda a largura da tela */
+  overflow: hidden; /* Evitar que o conteúdo ultrapasse a tela */
 }
 
 .custom-select {
@@ -127,7 +136,6 @@ body {
     width: 100%;
     border: none;
     background-color: #ecf0f1;
-    padding-left: 40px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -135,11 +143,11 @@ body {
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 16px 16px;
-    transition: background-color .5s;
 }
 .custom-select:hover {
     background-color: #ecf0f1;
 }
+
 
 
 .slide-enter-active, .slide-leave-active {
@@ -164,14 +172,16 @@ body {
 }
 
 .content {
-    background-color: #fff;
+  background-color: #fff;
     border-radius: 15px;
-    width: 60vw;
+    width: 60vw; /* Ajuste a largura conforme necessário */
     height: 75vh;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
+
+
 .content::before {
     content: "";
     position: absolute;
@@ -332,106 +342,9 @@ input:-webkit-autofill
     margin: 15px 0;
     text-align: center;
 }
-.password::first-letter {
-    text-transform: capitalize;
-}
-
-.sign-in-js .first-content .first-column {
-    z-index: -1;
-}
-
-.sign-in-js .second-content .second-column {
-    z-index: 11;
-}
-.sign-in-js .second-content .first-column {
-    z-index: 13;
-}
-
-.sign-in-js .content::before {
-    left: 60%;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    animation: slidein 0.8s; /*MODIFIQUEI DE 3s PARA 0.8s*/
-
-    z-index: 12;
-}
-
-.sign-up-js .content::before {
-    animation: slideout 0.8s; /*MODIFIQUEI DE 3s PARA 0.8s*/
-    z-index: 12;
-}
-
-.sign-up-js .second-content .first-column,
-.sign-up-js .second-content .second-column {
-    z-index: -1;
-}
-
-.sign-up-js .first-content .second-column {
-    z-index: 11;
-}
-
-.sign-up-js .first-content .first-column {
-    z-index: 13;
-}
 
 
-@keyframes slidein {
 
-    from {
-        left: 0;
-        width: 40%;
-    }
-
-    25% {
-        left: 5%;
-        width: 50%;
-    }
-
-    50% {
-        left: 25%;
-        width: 60%;
-    }
-
-    75% {
-        left: 45%;
-        width: 50%;
-    }
-
-    to {
-        left: 60%;
-        width: 40%;
-    }
-}
-
-@keyframes slideout {
-
-    from {
-        left: 60%;
-        width: 40%;
-    }
-
-    25% {
-        left: 45%;
-        width: 50%;
-    }
-
-    50% {
-        left: 25%;
-        width: 60%;
-    }
-
-    75% {
-        left: 5%;
-        width: 50%;
-    }
-
-    to {
-        left: 0;
-        width: 40%;
-    }
-}
 button:hover {
  background-position: right center;
  background-size: 200% auto;
@@ -439,19 +352,7 @@ button:hover {
  animation: pulse512 1s infinite;
 }
 
-@keyframes pulse512 {
- 0% {
-  box-shadow: 0 0 0 0 #05bada66;
- }
 
- 70% {
-  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
- }
-
- 100% {
-  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
- }
-}
 
 input:focus {
     outline: none;

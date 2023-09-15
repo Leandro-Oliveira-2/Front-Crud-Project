@@ -1,751 +1,252 @@
 <template>
-  <div id="myDiv" class="container">
-    <aside class="sidebar">
-      <nav class="dp-menu">
-        <ul>
-            <li><a href="#">Futebol</a>
-                <ul>
-                  
-                </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Esquerda -->
+      <aside class="sidebar-left col-2">
+        <nav class="dp-menu">
+          <ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Futebol</a>
             </li>
-            <li><a href="#">Sinuca</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Basquete</a>
             </li>
-            <li><a href="#">Tênis</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Beisebol</a>
             </li>
-            <li><a href="#">Basquete</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Hóquei</a>
             </li>
-            <li><a href="#">Vôlei</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Tênis</a>
             </li>
-            <li><a href="#">Atletismo</a>
-                <ul>
-                  
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Futebol</a>
             </li>
-            <li><a href="#">Natação</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Basquete</a>
             </li>
-            <li><a href="#">Rugby</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Beisebol</a>
             </li>
-            <li><a href="#">Ciclismo</a>
-                <ul>
-                   
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Hóquei</a>
             </li>
-            <li><a href="#">Futebol</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Tênis</a>
             </li>
-            <li><a href="#">Sinuca</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Futebol</a>
             </li>
-            <li><a href="#">Tênis</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Basquete</a>
             </li>
-            <li><a href="#">Basquete</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Beisebol</a>
             </li>
-            <li><a href="#">Vôlei</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Hóquei</a>
             </li>
-            <li><a href="#">Atletismo</a>
-                <ul>
-                  
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Tênis</a>
             </li>
-            <li><a href="#">Natação</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Futebol</a>
             </li>
-            <li><a href="#">Rugby</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Basquete</a>
             </li>
-            <li><a href="#">Ciclismo</a>
-                <ul>
-                   
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Beisebol</a>
             </li>
-            <li><a href="#">Futebol</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Hóquei</a>
             </li>
-            <li><a href="#">Sinuca</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Tênis</a>
             </li>
-            <li><a href="#">Tênis</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Futebol</a>
             </li>
-            <li><a href="#">Basquete</a>
-                <ul>
-                    
-                </ul>
+            <li class="teste" style="margin-block-end: 20px">
+              <a href="#">Basquete</a>
             </li>
-            <li><a href="#">Vôlei</a>
-                <ul>
-                    
-                </ul>
-            </li>
-            <li><a href="#">Atletismo</a>
-                <ul>
-                  
-                </ul>
-            </li>
-            <li><a href="#">Natação</a>
-                <ul>
-                    
-                </ul>
-            </li>
-            <li><a href="#">Rugby</a>
-                <ul>
-                    
-                </ul>
-            </li>
-            <li><a href="#">Ciclismo</a>
-                <ul>
-                   
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    </aside>
-<div class="table-geral">
-  <div class="st_wrap_table" data-table_id="0">
-    <header class="st_table_header">
-      <h2>Table header one</h2>
-      <div class="st_row">
-        <div class="st_column _rank">Rank</div>
-        <div class="st_column _name">Name</div>
-        <div class="st_column _surname">Surname</div>
-        <div class="st_column _year">Year</div>
-        <div class="st_column _section">Section</div>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Conteúdo Principal -->
+      <div id="myDiv" class="container col-6">
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Saldo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="usuario in usuarios" :key="usuario.id">
+              <td>{{ usuario.id }}</td>
+              <td>{{ usuario.name }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.adress }}</td>
+              <td>
+                {{ usuario.saldo ? usuario.saldo.toLocaleString("pt-BR", { minimumFractionDigits: 2 }) : '' }}
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">3</div>
-        <div class="st_column _name">Max</div>
-        <div class="st_column _surname">Luke</div>
-        <div class="st_column _year">1971</div>
-        <div class="st_column _section">USA</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">4</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Kunze</div>
-        <div class="st_column _year">2015</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">21</div>
-        <div class="st_column _name">Janina</div>
-        <div class="st_column _surname">Endres</div>
-        <div class="st_column _year">1955</div>
-        <div class="st_column _section">Belgium</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">243</div>
-        <div class="st_column _name">Lena</div>
-        <div class="st_column _surname">Eifel</div>
-        <div class="st_column _year">1996</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">1</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Nacht</div>
-        <div class="st_column _year">1968</div>
-        <div class="st_column _section">Swiss</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">231</div>
-        <div class="st_column _name">Vanessa</div>
-        <div class="st_column _surname">Schneider</div>
-        <div class="st_column _year">2004</div>
-        <div class="st_column _section">Russia</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">21</div>
-        <div class="st_column _name">laura</div>
-        <div class="st_column _surname">Beike</div>
-        <div class="st_column _year">1952</div>
-        <div class="st_column _section">Sweden</div>
-      </div>
+
+      <!-- Sidebar Direita -->
+      <!-- Sidebar Direita -->
+      <aside class="sidebar-right col-4">
+        <h3 class="plansanet">Dados do usuário:</h3>
+        <h4 id="name">Nome: {{ user.fullname }}</h4>
+        <p id="info" class="mb-7 opacity-70">
+          <b>Gênero:</b> {{ user.gender }}<br />
+          <b>E-mail:</b> {{ user.email }}<br />
+          <b>Endereço</b>: {{ user.adress }}<br />
+          <b>Telefone</b>: {{ user.phone }}
+        </p>
+
+        <h4>Transações do Usuário:</h4>
+        <table class="table transations">
+          <thead>
+            <tr>
+              <th class="id">id</th>
+              <th class="date">Date</th>
+              <th class="transaction">Transaction Type</th>
+              <th class="description">Description</th>
+              <th class="value">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="transacao in transacoes" :key="transacao.id">
+              <td>{{ transacao.id }}</td>
+              <td>{{  new Date(transacao.date).toLocaleString()  }}</td>
+              <td>{{ transacao.transationType }}</td>
+              <td>{{ transacao.description }}</td>
+              <td>
+                {{ transacao.value ? transacao.value.toLocaleString("pt-BR", { minimumFractionDigits: 2 }) : '' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
     </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="1">
-    <header class="st_table_header">
-      <h2>Apostas esportivas</h2>
-      <div class="st_row">
-        <div class="st_column _rank">Rank</div>
-        <div class="st_column _name">Name</div>
-        <div class="st_column _surname">Surname</div>
-        <div class="st_column _year">Year</div>
-        <div class="st_column _section">Section</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">34</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Kunze</div>
-        <div class="st_column _year">2015</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">54</div>
-        <div class="st_column _name">Janina</div>
-        <div class="st_column _surname">Endres</div>
-        <div class="st_column _year">1955</div>
-        <div class="st_column _section">Belgium</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">12</div>
-        <div class="st_column _name">Lena</div>
-        <div class="st_column _surname">Eifel</div>
-        <div class="st_column _year">1996</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">32</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">21</div>
-        <div class="st_column _name">Max</div>
-        <div class="st_column _surname">Luke</div>
-        <div class="st_column _year">1971</div>
-        <div class="st_column _section">USA</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">45</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Nacht</div>
-        <div class="st_column _year">1968</div>
-        <div class="st_column _section">Swiss</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">54</div>
-        <div class="st_column _name">Vanessa</div>
-        <div class="st_column _surname">Schneider</div>
-        <div class="st_column _year">2004</div>
-        <div class="st_column _section">Russia</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">120</div>
-        <div class="st_column _name">laura</div>
-        <div class="st_column _surname">Beike</div>
-        <div class="st_column _year">1952</div>
-        <div class="st_column _section">Sweden</div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="2">
-    <header class="st_table_header">
-      <h2>Isn't that nice</h2>
-      <div class="st_row">
-        <div class="st_column _rank">Rank</div>
-        <div class="st_column _name">Name</div>
-        <div class="st_column _surname">Surname</div>
-        <div class="st_column _year">Year</div>
-        <div class="st_column _section">Section</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">12</div>
-        <div class="st_column _name">Vanessa</div>
-        <div class="st_column _surname">Schneider</div>
-        <div class="st_column _year">2004</div>
-        <div class="st_column _section">Russia</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">430</div>
-        <div class="st_column _name">laura</div>
-        <div class="st_column _surname">Beike</div>
-        <div class="st_column _year">1952</div>
-        <div class="st_column _section">Sweden</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">34</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">123</div>
-        <div class="st_column _name">Max</div>
-        <div class="st_column _surname">Luke</div>
-        <div class="st_column _year">1971</div>
-        <div class="st_column _section">USA</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">324</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Kunze</div>
-        <div class="st_column _year">2015</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">45</div>
-        <div class="st_column _name">Janina</div>
-        <div class="st_column _surname">Endres</div>
-        <div class="st_column _year">1955</div>
-        <div class="st_column _section">Belgium</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">425</div>
-        <div class="st_column _name">Lena</div>
-        <div class="st_column _surname">Eifel</div>
-        <div class="st_column _year">1996</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">332</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Nacht</div>
-        <div class="st_column _year">1968</div>
-        <div class="st_column _section">Swiss</div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="3">
-    <header class="st_table_header">
-      <h2>Native STICKY</h2>
-      <div class="st_row">
-        <div class="st_column _rank">Rank</div>
-        <div class="st_column _name">Name</div>
-        <div class="st_column _surname">Surname</div>
-        <div class="st_column _year">Year</div>
-        <div class="st_column _section">Section</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">5</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">Lena</div>
-        <div class="st_column _surname">Eifel</div>
-        <div class="st_column _year">1996</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">1</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Nacht</div>
-        <div class="st_column _year">1968</div>
-        <div class="st_column _section">Swiss</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">8</div>
-        <div class="st_column _name">Vanessa</div>
-        <div class="st_column _surname">Schneider</div>
-        <div class="st_column _year">2004</div>
-        <div class="st_column _section">Russia</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">7</div>
-        <div class="st_column _name">laura</div>
-        <div class="st_column _surname">Beike</div>
-        <div class="st_column _year">1952</div>
-        <div class="st_column _section">Sweden</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Max</div>
-        <div class="st_column _surname">Luke</div>
-        <div class="st_column _year">1971</div>
-        <div class="st_column _section">USA</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Kunze</div>
-        <div class="st_column _year">2015</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Janina</div>
-        <div class="st_column _surname">Endres</div>
-        <div class="st_column _year">1955</div>
-        <div class="st_column _section">Belgium</div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="4">
-    <header class="st_table_header">
-      <h2>CSS3 *~'</h2>
-      <div class="st_row">
-        <div class="st_column _rank">Rank</div>
-        <div class="st_column _name">Name</div>
-        <div class="st_column _surname">Surname</div>
-        <div class="st_column _year">Year</div>
-        <div class="st_column _section">Section</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Max</div>
-        <div class="st_column _surname">Luke</div>
-        <div class="st_column _year">1971</div>
-        <div class="st_column _section">USA</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Kunze</div>
-        <div class="st_column _year">2015</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Jonas</div>
-        <div class="st_column _surname">Nacht</div>
-        <div class="st_column _year">1968</div>
-        <div class="st_column _section">Swiss</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Vanessa</div>
-        <div class="st_column _surname">Schneider</div>
-        <div class="st_column _year">2004</div>
-        <div class="st_column _section">Russia</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Janina</div>
-        <div class="st_column _surname">Endres</div>
-        <div class="st_column _year">1955</div>
-        <div class="st_column _section">Belgium</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">Lena</div>
-        <div class="st_column _surname">Eifel</div>
-        <div class="st_column _year">1996</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">laura</div>
-        <div class="st_column _surname">Beike</div>
-        <div class="st_column _year">1952</div>
-        <div class="st_column _section">Sweden</div>
-      </div>
-    </div>
-  </div>
-    </div>
-    <aside class="sidebar-rigth">
-      <header class="header-heigth"><h1 style="margin-left: 5%;">Seja bem vindo!</h1></header>
-      <nav class="nav-rigth">
-        <ul>
-          <li><a href="/deposit">Primeiro deposito.</a></li>
-          <li style="margin-top:10px"><a href="/saque">Desejar fazer um saque?</a></li>
-        </ul>
-      </nav>
-    </aside>
   </div>
 </template>
-    
-  <script>
-    
-    export default {
-      name: 'betting',
-      data () {
-        return {
 
-          }
-      },
-      methods: {
-        verificarUser() {
-          const user = localStorage.getItem("UserId");
-          console.log(user)
-          if(user === null || user == ''){
-            this.$router.push({ name: 'about' });
-          }
-        },
-      },
-      mounted() {
-        this.verificarUser();
+
+    
+<script>
+import axios from "axios";
+
+export default {
+  name: "betting",
+  data() {
+    return {
+      usuarios: [],
+      user: {},
+      userId: localStorage.getItem("UserId"),
+      transacoes: [] // Adicione esta linha
+    };
+  },
+  methods: {
+    verificarUser() {
+      if (this.userId === null || this.userId == "") {
+        this.$router.push({ name: "about" });
       }
-    }
-    </script>
+      const usuarioString = localStorage.getItem("Usuario");
+      return (
+        (this.user = JSON.parse(usuarioString).user), console.log(this.user)
+      );
+    },
+    async listarUsers() {
+      try {
+        const response = await axios.get("http://localhost:8081/api/v1/users/");
+        this.usuarios = response.data;
+      } catch (error) {
+        console.error("Erro ao listar usuários", error.response);
+      }
+    },
+    async transacoesUser() {
+      try {
+        const response = await axios.get(
+          `http://localhost:8081/api/v1/transations/list/${this.userId}`
+        );
+        
+        this.transacoes = response.data.transations;
+      } catch (error) {
+        console.error("Erro ao listar usuários", error.response);
+      }
+    },
+  },
+  mounted() {
+    this.listarUsers();
+    this.verificarUser();
+    this.transacoesUser();
+  },
+};
+</script>
     
 <style>
-:root {
-    --cor-fundo: rgb(34, 41, 37);
-    --cor-hover: rgb(118, 180, 145);
-    --cor-primaria: rgb(231, 241, 236);
-}
-
-.dp-menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.dp-menu ul {
-    background-color: var(--cor-fundo);
-}
-
-.dp-menu ul li {
-  display: block;
-    position: relative;
-}
-
-.dp-menu ul li a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    transition: background .3s;
-}
-
-.dp-menu ul li a:hover {
-    background-color: var(--cor-hover);
-}
-
-/*sub menu*/
-.dp-menu ul ul {
-    display: none;
-    left: 0;
-    position: absolute;
-}
-
-.dp-menu ul li:hover ul {
-    display: block;
-}
-
-.dp-menu ul ul {
-    width: 150px
-}
-
-.dp-menu ul ul li a {
-    display: block;
-}
-
-
-
-.header-heigth{
-  background-color: rgb(32, 183, 221);
-  color: #ffffff;
-  padding-block-start: 1vh;
-  text-align: left;
-  width: 30vw;
-  height: 5vh;
-}
-
-
-h1{
-  font-weight: 400;
-}
-a{
-  color: inherit;
-}
-p{
-  margin-top: .7em;
-}
-.warning{
-  color: rgb(62,148,236);
-}
-.st_viewport{
-  max-height: 900px;
-  overflow: auto;
-}
-
-[data-table_id="1"]{
-  background-color: rgb(255,115,0);
-}
-[data-table_id="2"]{
-  background-color: rgb(61,53,39);
-  color: rgb(220,220,220);
-}
-[data-table_id="3"]{
-  background-color: rgba(168,189,4, .8);
-}
-
-._rank{
-  min-width: 450px;
-}
-._id{
-  min-width: 60px;
-}
-._name{
-  min-width: 130px;
-}
-._surname{
-  min-width: 130px;
-}
-._year{
-  min-width: 80px;
-}
-._section{
-  min-width: 130px;
-}
-
-pre{
-  overflow: auto;
-}
-
-/** Sticky table styles **/
-.st_viewport{
-  background-color: rgb(62,148,236);
-  color: rgb(27,30,36);
-  margin: 20px 0;
-}
-
-.st_table_header{
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-  background-color: rgb(27,30,36);
-  color: rgb(220,220,220);
-}
-.st_table_header h2{
-  font-weight: 400;
-  margin: 0 20px;
-  padding: 20px 0 0;
-}
-.st_table_header .st_row{
-  color: rgba(220,220,220, .7);
-}
-
-/* ##  table */
-.st_table{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-/* #   row */
-.st_row{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-}
-.st_table .st_row:nth-child(even){
-  background-color: rgba(0,0,0, .1)
-}
-/* #   column */
-.st_column{
-  padding: 10px 20px;
-}
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e4d387;
-    background-size: cover;
-    height: 100%;
-    width: 100vw;
-}
-
-.sidebar {
-  position: relative;
-  top: -82.9vh;
-  width: 20%;
+@import "bootstrap/dist/css/bootstrap.css";
+.container-fluid.row {
+  margin: 0 -15px; /* Remova as margens negativas que o Bootstrap aplica */
   height: 100vh;
-  background: #312450;
+  width: 50%;
+}
+
+.date{
+  width: 2%;
+}
+
+.id{
+  width: 0.1%;
+}
+.transaction{
+  width: 0.5%;
+}
+
+.description{
+  width: 0.6%;
+}
+
+.value{
+  width: 4%;
+}
+
+
+.sidebar-left,
+.sidebar-right {
+  margin: 0; /* Remova qualquer margem padrão que possa estar sendo aplicada */
+}
+
+.container.col-6 {
+  margin-top: -15%;
+  height: 160vh;
+  font-size: 0.8vw;
+}
+
+.table.transations{
+  width:700px;
+  font-size: 0.8vw;
+  background-color: blue;
+}
+.sidebar-left {
+  border-radius: 20px;
+  display: block;
+  height: 100%;
+  background: #eba020;
   font-size: 0.65em;
-}
-
-.nav {
-  position: relative;
-  margin: 0 15%;
-  text-align: left;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-}
-
-.sidebar-rigth {
-  position: relative;
-  top: -123vh;
-  width:20%;
-  height: 20vh;
-  background: #312450;
-  font-size: 0.65em;
-}
-
-.nav-rigth {
-  position: relative;
-  margin: 0 8%;
-  text-align: left;
-  top: 10%;
-  font-weight: bold;
-}
-
-.nav-rigth a{
-  margin-bottom: 5vh;
-}
-.nav ul {
-  list-style: none;
-  
-  
+  position: sticky;
+  top: 0;
 }
 </style>
   
