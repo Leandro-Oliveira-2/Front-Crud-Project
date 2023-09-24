@@ -75,6 +75,9 @@ import Alert from '@/utils/Alert'
 import axios from 'axios';
 
 export default {
+  props: {
+    
+  },
   name: 'HomeView',
   data() {
     return {
@@ -92,7 +95,7 @@ export default {
         
         localStorage.setItem('UserId', response.data.user.id);
         localStorage.setItem('Usuario', JSON.stringify(response.data));
-
+        localStorage.setItem('paginaCarregada', false);
         this.$router.push({ name: 'betting' });
         } 
         catch (error) {
@@ -103,7 +106,12 @@ export default {
       this.$router.push({ name: 'about' });
     },
     limparStorage(){
-      if(localStorage.getItem(Usuario)){
+      if(localStorage.getItem('entrei') == 1){
+        localStorage.setItem('userEdit', 0);
+
+      }
+
+      if(localStorage.getItem("Usuario")){
         window.localStorage.clear();
       }
     }

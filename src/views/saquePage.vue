@@ -2,7 +2,7 @@
   <div class="container-body">
     <div class="centered-container">
       <h2 class="pb-2 border-bottom">Saque</h2>
-      <form class="form" @submit.prevent="depositForm">
+      <form class="form" @submit.prevent="saqueForm">
         <label class="label-input">
           <i class="far fa-envelope icon-modify"></i>
           <input type="text" placeholder="Valor" v-model="postData.value" />
@@ -38,17 +38,18 @@
 </template>
 
 <script>
-import axios from "axios";
 import Alert from '@/utils/Alert'
+const userComplite = JSON.parse(localStorage.getItem("Usuario"));
 const user = localStorage.getItem("UserId");
+import request from "../utils/request";
 
 export default {
-  name: "depositPage",
+  name: "saquePage",
   data() {
     return {
       postData: {
         userId: user,
-        transationType: "Deposito",
+        transationType: "Saque",
         description: "",
         value: "",
         status: "Concluído",
@@ -56,23 +57,30 @@ export default {
     };
   },
   methods: {
-    async depositForm() {
+    async saqueForm() {
       this.postData.userId = parseInt(this.postData.userId);
       this.postData.value = parseFloat(this.postData.value);
       this.postData.value = this.postData.value;
 
+      console.log(this.postData)
+      console.log(userComplite.accessToken)
       try {
-        const response = await axios.post(
-          "http://localhost:8081/api/v1/transations/saque",
-          this.postData
+         request(
+          `/transations/saque`,
+          "POST",
+          this.postData,
+          userComplite.accessToken,
+          (r) => {
+            Alert("Saque feito com Sucesso!");
+            this.postData.value = "";
+            this.postData.description = "";
+            const userAtualizado = JSON.parse(localStorage.getItem("Usuario"));
+            userAtualizado.user.saldo = response.data.saldoAtual;
+            localStorage.setItem("Usuario", JSON.stringify(userAtualizado));
+          }
         );
-        this.postData.value = "";
-        this.postData.description = "";
-
-        Alert("Transação Concluída com Sucesso!");
       } catch (error) {
-        Alert("Erro na transação!");
-        document.location.reload();
+        Alert("Erro na transação!", error);
       }
     },
     verificarUser() {
@@ -84,6 +92,7 @@ export default {
     },
     mudarPag() {
       this.$router.push({ name: "betting" });
+      localStorage.setItem("userEdit", 1);
     },
   },
 };

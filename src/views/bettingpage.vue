@@ -1,252 +1,217 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar Esquerda -->
-      <aside class="sidebar-left col-2">
-        <nav class="dp-menu">
-          <ul>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Futebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Basquete</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Beisebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Hóquei</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Tênis</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Futebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Basquete</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Beisebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Hóquei</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Tênis</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Futebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Basquete</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Beisebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Hóquei</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Tênis</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Futebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Basquete</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Beisebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Hóquei</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Tênis</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Futebol</a>
-            </li>
-            <li class="teste" style="margin-block-end: 20px">
-              <a href="#">Basquete</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-      <!-- Conteúdo Principal -->
-      <div id="myDiv" class="container col-6">
-        <table class="table table-dark table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>Saldo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="usuario in usuarios" :key="usuario.id">
-              <td>{{ usuario.id }}</td>
-              <td>{{ usuario.name }}</td>
-              <td>{{ usuario.email }}</td>
-              <td>{{ usuario.adress }}</td>
-              <td>
-                {{ usuario.saldo ? usuario.saldo.toLocaleString("pt-BR", { minimumFractionDigits: 2 }) : '' }}
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <nav-bar />
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="myDiv" class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="pb-2">Clientes</h2>
+            </div>
+            <div class="col-12">
+              <button
+                type="button"
+                class="btn btn-light"
+                v-on:click="registrerScreen()"
+                style="margin: 0 8% 0"
+              >
+                Cadastrar
+              </button>
+              <a>{{ " " }}</a>
+              <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Saldos</th>
+                    <th style="text-align: center">Alterações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="usuario in usuarios" :key="usuario.id">
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.name }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.adress }}</td>
+                    <td>
+                      {{
+                        usuario.saldo
+                          ? usuario.saldo.toLocaleString("pt-BR", {
+                              minimumFractionDigits: 2,
+                            })
+                          : ""
+                      }}
+                    </td>
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-sm btn-light dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          style="text-align: center"
+                        >
+                          Ações
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              v-on:click="editPag(usuario)"
+                              >Editar</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="javascript:void(0)"
+                              v-on:click="excluirUsuario(usuario.id)"
+                              >Excluir</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="txt-pag">
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+          </div>
+        </div>
       </div>
-
-      <!-- Sidebar Direita -->
-      <!-- Sidebar Direita -->
-      <aside class="sidebar-right col-4">
-        <h3 class="plansanet">Dados do usuário:</h3>
-        <h4 id="name">Nome: {{ user.fullname }}</h4>
-        <p id="info" class="mb-7 opacity-70">
-          <b>Gênero:</b> {{ user.gender }}<br />
-          <b>E-mail:</b> {{ user.email }}<br />
-          <b>Endereço</b>: {{ user.adress }}<br />
-          <b>Telefone</b>: {{ user.phone }}
-        </p>
-
-        <h4>Transações do Usuário:</h4>
-        <table class="table transations">
-          <thead>
-            <tr>
-              <th class="id">id</th>
-              <th class="date">Date</th>
-              <th class="transaction">Transaction Type</th>
-              <th class="description">Description</th>
-              <th class="value">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="transacao in transacoes" :key="transacao.id">
-              <td>{{ transacao.id }}</td>
-              <td>{{  new Date(transacao.date).toLocaleString()  }}</td>
-              <td>{{ transacao.transationType }}</td>
-              <td>{{ transacao.description }}</td>
-              <td>
-                {{ transacao.value ? transacao.value.toLocaleString("pt-BR", { minimumFractionDigits: 2 }) : '' }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </aside>
     </div>
-  </div>
+  </body>
+  <footer-view />
 </template>
 
 
     
 <script>
 import axios from "axios";
+import navBar from "@/views/navBar.vue";
+import request from "../utils/request";
+import footer from "../views/FooterView.vue";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+const userComplite = JSON.parse(localStorage.getItem("Usuario"));
 
 export default {
+  components: {
+    "nav-bar": navBar,
+    "footer-view": footer,
+  },
   name: "betting",
   data() {
     return {
       usuarios: [],
       user: {},
       userId: localStorage.getItem("UserId"),
-      transacoes: [] // Adicione esta linha
+      transacoes: [], // Adicione esta linha
     };
   },
   methods: {
     verificarUser() {
+      localStorage.setItem("entrei", 1);
+
+      if(localStorage.getItem("userEdit") == 1){
+        localStorage.setItem("userEdit", 0);
+        window.location.reload();
+      }
       if (this.userId === null || this.userId == "") {
         this.$router.push({ name: "about" });
       }
+
       const usuarioString = localStorage.getItem("Usuario");
-      return (
-        (this.user = JSON.parse(usuarioString).user), console.log(this.user)
-      );
+      return (this.user = JSON.parse(usuarioString).user);
+    },
+    editPag(user) {
+      localStorage.setItem("userAlter", JSON.stringify(user));
+      localStorage.setItem("userEdit", 1);
+
+      this.$router.push({ name: "alterUser" });
+    },
+    registrerScreen() {
+      this.$router.push({ name: "about" });
     },
     async listarUsers() {
       try {
-        const response = await axios.get("http://localhost:8081/api/v1/users/");
+        const response = await request(
+          `/users/`,
+          "GET",
+          "",
+          userComplite.accessToken,
+          (r) => {
+            this.usuarios = [...r.data].sort(
+              (a, b) => parseInt(a.id) - parseInt(b.id)
+            );
+            Alert("usuário atualizado com Sucesso!");
+          }
+        );
         this.usuarios = response.data;
       } catch (error) {
         console.error("Erro ao listar usuários", error.response);
       }
     },
-    async transacoesUser() {
-      try {
-        const response = await axios.get(
-          `http://localhost:8081/api/v1/transations/list/${this.userId}`
-        );
-        
-        this.transacoes = response.data.transations;
-      } catch (error) {
-        console.error("Erro ao listar usuários", error.response);
-      }
+    excluirUsuario(id) {
+      console.log(id);
+      request(`/users/${id}`, "DELETE", {}, userComplite.accessToken, (r) => {
+        Alert("usuário deletado com Sucesso!");
+      });
     },
   },
   mounted() {
     this.listarUsers();
     this.verificarUser();
-    this.transacoesUser();
   },
 };
 </script>
     
 <style>
 @import "bootstrap/dist/css/bootstrap.css";
-.container-fluid.row {
-  margin: 0 -15px; /* Remova as margens negativas que o Bootstrap aplica */
-  height: 100vh;
-  width: 50%;
+
+.txt-pag {
+  margin-block-end: 15%;
 }
 
-.date{
-  width: 2%;
+.pb-2 {
+  margin: 0 50% 0;
 }
 
-.id{
-  width: 0.1%;
-}
-.transaction{
-  width: 0.5%;
-}
-
-.description{
-  width: 0.6%;
-}
-
-.value{
-  width: 4%;
-}
-
-
-.sidebar-left,
-.sidebar-right {
-  margin: 0; /* Remova qualquer margem padrão que possa estar sendo aplicada */
+.container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #89f3ac;
+  height: max-content;
+  width: 100vw;
+  overflow: visible;
+  margin-block-end: -25%;
 }
 
-.container.col-6 {
-  margin-top: -15%;
-  height: 160vh;
+.nav-bar {
+  background-color: aqua;
+  font-size: small;
+}
+
+.table.table-dark.table-striped {
+  margin: 0 8% 0;
+  width: 900px;
   font-size: 0.8vw;
+  position: relative;
+  margin-block-end: 5%;
 }
 
-.table.transations{
-  width:700px;
-  font-size: 0.8vw;
-  background-color: blue;
-}
-.sidebar-left {
-  border-radius: 20px;
-  display: block;
-  height: 100%;
-  background: #eba020;
-  font-size: 0.65em;
-  position: sticky;
-  top: 0;
+.btn.btn-secondary.dropdown-toggle {
+  font-size: 1vw; /* Ajuste o tamanho da fonte conforme necessário */
+  text-align: center;
 }
 </style>
   

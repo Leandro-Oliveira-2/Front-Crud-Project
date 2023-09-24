@@ -67,7 +67,7 @@
             <i class="fas fa-lock icon-modify"></i>
             <input
               type="password"
-              v-model="userData.passwordHash"
+              v-model="userData.secret"
               placeholder="Confirme a senha"
             />
           </label>
@@ -98,6 +98,7 @@
 </template>
   
 <script>
+import request from "../utils/request";
 import axios from "axios";
 import Alert from "@/utils/Alert";
 
@@ -120,12 +121,11 @@ export default {
   methods: {
     async cadastroForm() {
       console.log(this.userData);
+    
       try {
-        const response = await axios.post(
-          "http://localhost:8081/api/v1/users/",
-          this.userData
-        );
-        alert("Usuário Cadastrado Com Sucesso!")
+        request(`/users/`, "POST", this.userData, "", (r) => {
+       
+        Alert("usuário Criado com Sucesso!");
 
         this.userData = {
           name: "",
@@ -136,9 +136,10 @@ export default {
           secret: "",
           saldo: 0,
         };
-        this.$router.push({name: "home"})
+        this.$router.push({ name: "home" });
+      });
       } catch (error) {
-       Alert("Erro ao cadastrar usuário:", "red");
+        Alert("Erro ao cadastrar usuário:", "red");
       }
     },
     onSignInClick() {

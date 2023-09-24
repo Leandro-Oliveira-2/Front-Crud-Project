@@ -26,6 +26,16 @@ const routes = [
     path: '/saque',
     name: 'saquePage',
     component: ()=> import('../views/saquePage.vue')
+  },
+  {
+    path: '/alter',
+    name: 'alterUser',
+    component: ()=> import('../views/AlterUserView.vue')
+  },
+  {
+    path: '/userScreen',
+    name: 'userScreen',
+    component: ()=> import('../views/UserScreen.vue')
   }
 ]
 
