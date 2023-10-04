@@ -101,17 +101,6 @@ export default {
             Alert("usuário atualizado com Sucesso!");
           }
         );
-
-        /*         await axios.patch(
-          `http://localhost:8081/api/v1/users/${this.userId}`,
-          this.userData,
-          {
-            header: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${userComplite.accessToken}`,
-            },
-          }
-        ); */
       } catch (error) {
         console.log(error);
         Alert("Erro na atualização!");
@@ -124,11 +113,12 @@ export default {
         localStorage.setItem('userEdit', 0);
         window.location.reload();
       }
-      const user = localStorage.getItem("UserId");
-      console.log(user);
-      if (user === null || user == "") {
-        this.$router.push({ name: "about" });
-      }
+      if (verific === null) {
+      this.$router.push({ name: "about" });
+      setInterval(() => {
+        window.location.reload();
+      }, 100);
+    }
     },
     mudarPag() {
       this.$router.push({ name: "betting" });

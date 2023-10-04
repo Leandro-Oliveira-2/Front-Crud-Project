@@ -119,9 +119,13 @@ export default {
     };
   },
   methods: {
+    verificarUser(){
+      if(localStorage.getItem("userEdit") == 1 ){
+        localStorage.clear();
+        window.location.reload();
+      }
+    },
     async cadastroForm() {
-      console.log(this.userData);
-    
       try {
         request(`/users/`, "POST", this.userData, "", (r) => {
        
@@ -147,6 +151,9 @@ export default {
         this.activeContent === "signin" ? "signup" : "signin";
       this.$router.push({ name: "home" });
     },
+  },
+  mounted() {
+    this.verificarUser();
   },
 };
 </script>

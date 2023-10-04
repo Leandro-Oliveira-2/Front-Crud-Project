@@ -15,7 +15,8 @@ const routes = [
   {
     path: '/betting',
     name: 'betting',
-    component: ()=> import('../views/bettingpage.vue')
+    component: ()=> import('../views/bettingpage.vue'),
+    props:true,
   },
   {
     path: '/deposit',
@@ -30,12 +31,18 @@ const routes = [
   {
     path: '/alter',
     name: 'alterUser',
-    component: ()=> import('../views/AlterUserView.vue')
+    component: ()=> import('../views/AlterUserView.vue'),
+    props:true,
   },
   {
     path: '/userScreen',
     name: 'userScreen',
     component: ()=> import('../views/UserScreen.vue')
+  },
+  {
+    path: '/transations',
+    name: 'transations',
+    component: ()=> import('../views/TransationsView.vue')
   }
 ]
 

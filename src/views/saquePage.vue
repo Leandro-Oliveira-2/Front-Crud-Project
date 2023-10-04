@@ -5,7 +5,7 @@
       <form class="form" @submit.prevent="saqueForm">
         <label class="label-input">
           <i class="far fa-envelope icon-modify"></i>
-          <input type="text" placeholder="Valor" v-model="postData.value" />
+          <money3 v-model="postData.value" v-bind="moneyConfig" />
         </label>
         <label class="label-input">
           <i class="fas fa-lock icon-modify"></i>
@@ -38,13 +38,18 @@
 </template>
 
 <script>
-import Alert from '@/utils/Alert'
+import Alert from "@/utils/Alert";
+import request from "../utils/request";
+import { Money3Component } from "v-money3";
+
 const userComplite = JSON.parse(localStorage.getItem("Usuario"));
 const user = localStorage.getItem("UserId");
-import request from "../utils/request";
 
 export default {
   name: "saquePage",
+  components: {
+    VMoney3: Money3Component,
+  },
   data() {
     return {
       postData: {
@@ -54,18 +59,22 @@ export default {
         value: "",
         status: "Concluído",
       },
+      moneyConfig: {
+        decimal: ",",
+        thousands: ".",
+        prefix: "R$ ",
+        suffix: "",
+        precision: 2,
+        masked: false,
+      },
     };
   },
   methods: {
     async saqueForm() {
       this.postData.userId = parseInt(this.postData.userId);
       this.postData.value = parseFloat(this.postData.value);
-      this.postData.value = this.postData.value;
-
-      console.log(this.postData)
-      console.log(userComplite.accessToken)
       try {
-         request(
+        await request(
           `/transations/saque`,
           "POST",
           this.postData,
@@ -77,17 +86,24 @@ export default {
             const userAtualizado = JSON.parse(localStorage.getItem("Usuario"));
             userAtualizado.user.saldo = response.data.saldoAtual;
             localStorage.setItem("Usuario", JSON.stringify(userAtualizado));
+          },
+          (error) => {
+            if (error.response.status === 403) {
+              Alert("Saldo insuficiente!");
+            }
           }
         );
       } catch (error) {
+       
         Alert("Erro na transação!", error);
       }
     },
     verificarUser() {
-      const user = localStorage.getItem("UserId");
-      console.log(user);
-      if (user === null || user == "") {
+      if (verific === null) {
         this.$router.push({ name: "about" });
+        setInterval(() => {
+          window.location.reload();
+        }, 100);
       }
     },
     mudarPag() {

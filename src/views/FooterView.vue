@@ -1,7 +1,7 @@
 <template>
   <footer class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <h3 id="txt">O BANCO QUE PENSA EM VOCÊ!</h3>
-    <p style="color: white"><span>NICEBANK</span> &copy; 2022</p>
+    <h3 id="txt">UM EXEMPLAR DA ESPECIE DOS CRUDS!</h3>
+    <p style="color: white"><span>Snet Crud</span> &copy; 2023</p>
   </footer>
 </template>
 
@@ -31,7 +31,7 @@ footer {
   height: 120px;
   width: 100%; /* Para ocupar toda a largura */
   background-color: aliceblue;
-  margin-top: 20%;
+  margin-top: 15%;
   position: fixed;
 }
 

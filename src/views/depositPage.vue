@@ -5,7 +5,7 @@
       <form class="form" @submit.prevent="depositForm">
         <label class="label-input">
           <i class="far fa-envelope icon-modify"></i>
-          <input type="text" placeholder="Valor" v-model="postData.value" />
+          <money3 v-model="postData.value" v-bind="moneyConfig" />
         </label>
         <label class="label-input">
           <i class="fas fa-lock icon-modify"></i>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { Money3Component } from "v-money3";
 import Alert from "@/utils/Alert";
 import request from "../utils/request";
 
@@ -47,6 +47,9 @@ const user = localStorage.getItem("UserId");
 
 export default {
   name: "depositPage",
+  components: {
+    VMoney3: Money3Component,
+  },
   data() {
     return {
       postData: {
@@ -56,29 +59,40 @@ export default {
         value: "",
         status: "Concluído",
       },
+      moneyConfig: {
+        decimal: ",",
+        thousands: ".",
+        prefix: "R$ ",
+        suffix: "",
+        precision: 2,
+        masked: false,
+      },
     };
   },
   methods: {
     async depositForm() {
       this.postData.userId = parseInt(this.postData.userId);
       this.postData.value = parseFloat(this.postData.value);
-      this.postData.value = this.postData.value;
-      console.log("oi")
-      try {
-        console.log(userComplite)
 
-        request(
+      try {
+        const response = await request(
           `/transations/deposit`,
           "POST",
           this.postData,
           userComplite.accessToken,
           (r) => {
-            Alert("Deposito Feito Com Sucesso!");
+            Alert("Depósito Feito Com Sucesso!");
             this.postData.value = "";
             this.postData.description = "";
             const userAtualizado = JSON.parse(localStorage.getItem("Usuario"));
-            userAtualizado.user.saldo = response.data.saldoAtual;
+            userAtualizado.user.saldo = r.data.saldoAtual; // Correção aqui: estava "response", mudei para "r"
             localStorage.setItem("Usuario", JSON.stringify(userAtualizado));
+          },
+          (error) => {
+            if (error.response && error.response.status === 400) {
+              // Adicionado verificação se há resposta
+              Alert("Valor Inválido!");
+            }
           }
         );
       } catch (error) {
@@ -86,10 +100,11 @@ export default {
       }
     },
     verificarUser() {
-      const user = localStorage.getItem("UserId");
-      console.log(user);
-      if (user === null || user == "") {
+      if (verific === null) {
         this.$router.push({ name: "about" });
+        setInterval(() => {
+          window.location.reload();
+        }, 100);
       }
     },
     mudarPag() {
@@ -141,11 +156,11 @@ h2 {
 }
 
 .btn-second {
-    font-size: 22px;
-    background-color: #58af9b;
-    text-align: center;
-    width: 144px;
-    margin: 52px 0 0;
+  font-size: 22px;
+  background-color: #58af9b;
+  text-align: center;
+  width: 144px;
+  margin: 52px 0 0;
 }
 
 .btn-second:hover {

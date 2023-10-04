@@ -95,7 +95,7 @@ export default {
         
         localStorage.setItem('UserId', response.data.user.id);
         localStorage.setItem('Usuario', JSON.stringify(response.data));
-        localStorage.setItem('paginaCarregada', false);
+        localStorage.setItem('userEdit', 1);
         this.$router.push({ name: 'betting' });
         } 
         catch (error) {
@@ -106,13 +106,10 @@ export default {
       this.$router.push({ name: 'about' });
     },
     limparStorage(){
-      if(localStorage.getItem('entrei') == 1){
-        localStorage.setItem('userEdit', 0);
-
-      }
-
-      if(localStorage.getItem("Usuario")){
-        window.localStorage.clear();
+      console.log(localStorage.getItem("UserId"));
+      if(localStorage.getItem("UserId") !== null ){
+        localStorage.clear();
+        window.location.reload();
       }
     }
   },
