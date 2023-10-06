@@ -90,7 +90,6 @@ export default {
           },
           (error) => {
             if (error.response && error.response.status === 400) {
-              // Adicionado verificação se há resposta
               Alert("Valor Inválido!");
             }
           }

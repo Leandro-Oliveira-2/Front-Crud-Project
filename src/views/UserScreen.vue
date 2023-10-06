@@ -93,7 +93,6 @@ export default {
     async transacoesUser() {
     window.scrollBy(0,-5000);
       try {
-        console.log("OI")
         const response = await request(
           `/transations/`,
           "GET",
@@ -109,28 +108,32 @@ export default {
         console.error("Erro ao listar usuários", error);
       }
     },
-    filtrarUsuarios(pesquisa) {
+    async filtrarUsuarios(pesquisa) {
       try {
-        const response =  request(
+        await request(
           `/transations/filterByName?name=${pesquisa}`,
           "POST",
           {},
-          {headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },},
-            (r) => {
-              console.log(r.data)
+          userComplite.accessToken  ,
+          (r) => {
+            console.log(r.data)
             this.transacoes = [...r.data].sort(
               (a, b) => parseInt(a.id) - parseInt(b.id)
             );
-            Alert("usuário atualizado com Sucesso!");
+            Alert("Todas as transações de !");
+          },
+          (error) => {
+            if (error.response && error.response.status === 403) {
+              Alert("Saldo não encontrado!");
+            }
           }
         );
-        
       } catch (error) {
-        alert("Usuário não encontrado");
+       
+        Alert("Erro na busca!", error);
       }
     },  
+    
     mudarPag() {
       this.$router.push({ name: "betting" });
     },
