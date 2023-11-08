@@ -68,6 +68,15 @@
             <i class="fas fa-lock icon-modify"></i>
             <input
               type="password"
+              v-model="userData.senha"
+              placeholder="Senha"
+            />
+          </label>
+
+          <label class="label-input" for="">
+            <i class="fas fa-lock icon-modify"></i>
+            <input
+              type="password"
               v-model="userData.secret"
               placeholder="Confirme a senha"
             />
@@ -112,6 +121,7 @@ export default {
         email: "",
         phone: "",
         adress: "",
+        senha: "",
         secret: "",
         saldo: 0,
         fidelidade: {
@@ -145,6 +155,11 @@ export default {
       ); // Aplica a máscara (XX) XXXX-XXXX
     },
     async cadastroForm() {
+      if( this.userData.senha != this.userData.secret){
+        Alert("As senhas não coincidem!", "red");
+        return;
+      }
+
       try {
         request(`/users/`, "POST", this.userData, "", (r) => {
           Alert("usuário Criado com Sucesso!");
