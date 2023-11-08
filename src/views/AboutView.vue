@@ -191,6 +191,8 @@ input:focus {
   outline: none;
 }
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -204,11 +206,17 @@ body {
   flex-direction: column; /* Alinhar o conteúdo verticalmente */
   justify-content: center; /* Centralizar verticalmente */
   align-items: center; /* Centralizar horizontalmente */
-  background-color: #89f3ac;
+ background-image: linear-gradient(
+    315deg,
+    rgb(243, 162, 137) 0%,
+    #77a4e0 74%,
+    #59c9a8 100%
+  ); 
   height: 100vh; /* Ocupar toda a altura da tela */
   width: 100vw; /* Ocupar toda a largura da tela */
-  overflow: hidden; /* Evitar que o conteúdo ultrapasse a tela */
+
 }
+
 
 .custom-select {
   outline: none;
