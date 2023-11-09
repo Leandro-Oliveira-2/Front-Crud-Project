@@ -144,7 +144,7 @@ export default {
       console.log("Formulário de login enviado!");
       try {
         const response = await axios.post(
-          "http://localhost:8081/api/v1/auth/",
+          "https://back-crud-project-production.up.railway.app/api/v1/auth/",
           this.userData
         );
         this.userData.id = response.data.user.id;
