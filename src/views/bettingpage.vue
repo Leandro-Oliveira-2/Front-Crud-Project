@@ -345,6 +345,7 @@ export default {
   text-align: center;
 }
 
+
 .container {
   position: relative;
   background-size: cover;
@@ -353,7 +354,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #89f3ac;
+  background-image: linear-gradient(
+    315deg,
+    rgb(243, 162, 137) 0%,
+    #77a4e0 74%,
+    #59c9a8 100%
+  ); 
   height: auto;
   width: 100vw;
   min-height: 800px;
