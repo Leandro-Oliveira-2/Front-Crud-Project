@@ -260,10 +260,14 @@ export default {
           "",
           userComplite.accessToken,
           (r) => {
-            this.usuarios = [...r.data].sort(
+            this.usuarios = [...r.data.filter((item)=> item.enabled)].sort(
               (a, b) => parseInt(a.id) - parseInt(b.id)
             );
-
+            console.log(this.usuarios)
+            
+            this.usuarios.map((item)=>{
+              console.log(item.enabled)
+            })
             this.usuariosDividos = this.divisorList(this.usuarios, 10);
             this.usuariosParaListar =
               this.usuariosDividos[this.paginaAtual - 1];

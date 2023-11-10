@@ -175,6 +175,7 @@ export default {
             fidelidade: {
               dia: 0,
             },
+            anebled: true,
           };
           this.$router.push({ name: "home" });
         });
