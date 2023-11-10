@@ -129,6 +129,7 @@ export default {
     },
     async transacoesUser() {
       window.scrollBy(0, -5000);
+      localStorage.setItem("userEdit", 1);
       try {
         const response = await request(
           `/transations/list/${this.userId}`,

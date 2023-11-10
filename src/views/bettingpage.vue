@@ -200,7 +200,7 @@ export default {
           window.location.reload();
         }, 100);
       }
-      localStorage.setItem("entrei", 1);
+     
 
       if (localStorage.getItem("userEdit") == 1) {
         localStorage.setItem("userEdit", 0);
@@ -252,6 +252,10 @@ export default {
       }
     },
     async listarUsers() {
+      if(localStorage.getItem("userEdit") == 1){
+        localStorage.setItem("userEdit", 0);
+        window.location.reload();
+      }
       window.scrollBy(0, -5000);
       try {
         const response = await request(
@@ -271,8 +275,9 @@ export default {
             this.usuariosDividos = this.divisorList(this.usuarios, 10);
             this.usuariosParaListar =
               this.usuariosDividos[this.paginaAtual - 1];
-            //if(this.paginaAtual == 1) return this.usuarios = this.usuariosDividos[0]// Inicializa com a primeira página
+            
             Alert("usuário atualizado com Sucesso!");
+            
           }
         );
       } catch (error) {

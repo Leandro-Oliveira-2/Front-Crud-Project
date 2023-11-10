@@ -153,7 +153,7 @@ export default {
         localStorage.setItem("UserId", response.data.user.id);
         localStorage.setItem("Usuario", JSON.stringify(response.data));
         localStorage.setItem("userEdit", 1);
-
+        localStorage.setItem("entrei", 1);
         let dateFidelidade = new Date(response.data.user.fidelidade.data);
         let ano = dateFidelidade.getFullYear();
         let mes = dateFidelidade.getMonth() + 1;
@@ -174,24 +174,20 @@ export default {
           diaNow
         );
         if (!(anoNow == ano && mesNow == mes && diaNow == dia)) {
-          console.log("Entrei na 126");
           if (
             dataSeguinte.getFullYear() == anoNow &&
             dataSeguinte.getMonth() + 1 == mesNow &&
             dataSeguinte.getDate() == diaNow
           ) {
-            console.log("Entrei na 128");
             this.userData.user.fidelidade.dia =
               response.data.user.fidelidade.dia + 1;
             this.userData.user.fidelidade.data = new Date();
           } else {
-            console.log("Entrei no else");
             this.userData.user.fidelidade.dia = 1;
             this.userData.user.fidelidade.data = new Date();
           }
 
           if (this.userData.user.fidelidade.dia == 5) {
-            console.log("Entrei na 138");
             this.userData.user.saldo = this.userData.user.saldo + 50;
             this.userData.user.fidelidade.dia = 0;
           }
