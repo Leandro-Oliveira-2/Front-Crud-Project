@@ -302,15 +302,16 @@ body {
 .title {
   font-size: 28px;
   font-weight: bold;
-  text-transform: capitalize;
+  margin-block-end: -15px;
+  text-align: center;
+  margin-top: 2px;
 }
 .title-primary {
   color: #fff;
 }
+
 .title-second {
-  margin-top: -10%;
   color: #58af9b;
-  padding-block-end: 30px;
 }
 .description {
   font-size: 14px;
