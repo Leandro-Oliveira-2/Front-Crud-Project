@@ -270,7 +270,7 @@ h1 {
 }
 
 .pageNavigation {
-  margin: -5% -12% 2px;
+  margin: -5% 45% 2px;
   color: #f38989;
   margin-block-end: 5%;
 }

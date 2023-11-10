@@ -385,7 +385,7 @@ export default {
 }
 
 .pageNavigation {
-  margin: -5% 40% 2px;
+  margin: -5% 45% 2px;
   color: #f38989;
   margin-block-end: 5%;
 }
