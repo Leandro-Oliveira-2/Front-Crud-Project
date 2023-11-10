@@ -141,7 +141,7 @@ export default {
           "",
           userComplite.accessToken,
           (r) => {
-            this.usuarios = [...r.data].sort(
+            this.usuarios = [...r.data.filter(user => user.id !== this.postData.userPutId)].sort(
               (a, b) => parseInt(a.id) - parseInt(b.id)
             );
           }
