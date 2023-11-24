@@ -1,5 +1,6 @@
 <template>
   <nav-bar @filtrar="filtrarUsuarios" />
+  <HomeView @deposito="handleDeposito" />
   <body>
     <div class="container-fluid">
       <div class="row">
@@ -192,7 +193,9 @@ export default {
   },
   methods: {
     verificarUser() {
-      const verific = localStorage.getItem("Usuario");
+      const verific = JSON.parse(localStorage.getItem("Usuario"));
+      console.log(verific);
+      const fidelidade = localStorage.getItem("fidelidade");
 
       if (verific === null) {
         this.$router.push({ name: "about" });
@@ -200,7 +203,38 @@ export default {
           window.location.reload();
         }, 100);
       }
-     
+
+      if (fidelidade) {
+        try {
+          request(
+            `/transations/deposit`,
+            "POST",
+            {
+              userId: verific.user.id,
+              transationType: "Fidelidade",
+              description: "Depósito de Fidelidade",
+              value: parseFloat(50),
+              status: "Concluído",
+            },
+            userComplite.accessToken,
+            (r) => {
+              setTimeout(() => {
+                Alert(
+                  "Parabéns você logou 5 dias seguidos, $50,00 adicionado a conta!"
+                );
+              }, 5000);
+            },
+            (error) => {
+              if (error.response && error.response.status === 400) {
+                Alert("Valor Inválido!");
+              }
+            }
+          );
+        } catch (error) {
+          console.log(error);
+          Alert("Erro na transação!");
+        }
+      }
 
       if (localStorage.getItem("userEdit") == 1) {
         localStorage.setItem("userEdit", 0);
@@ -251,8 +285,10 @@ export default {
         alert("Usuário não encontrado");
       }
     },
+    async handleDeposito() {},
     async listarUsers() {
-      if(localStorage.getItem("userEdit") == 1){
+      
+      if (localStorage.getItem("userEdit") == 1) {
         localStorage.setItem("userEdit", 0);
         window.location.reload();
       }
@@ -264,20 +300,17 @@ export default {
           "",
           userComplite.accessToken,
           (r) => {
-            this.usuarios = [...r.data.filter((item)=> item.enabled)].sort(
+            this.usuarios = [...r.data.filter((item) => item.enabled)].sort(
               (a, b) => parseInt(a.id) - parseInt(b.id)
             );
-            console.log(this.usuarios)
-            
-            this.usuarios.map((item)=>{
-              console.log(item.enabled)
-            })
+            console.log(this.usuarios);
+
+            this.usuarios.map((item) => {
+              console.log(item.enabled);
+            });
             this.usuariosDividos = this.divisorList(this.usuarios, 10);
             this.usuariosParaListar =
               this.usuariosDividos[this.paginaAtual - 1];
-            
-            Alert("usuário atualizado com Sucesso!");
-            
           }
         );
       } catch (error) {
@@ -285,9 +318,6 @@ export default {
       }
     },
     irParaPagina(pagina) {
-      console.log("pagina", pagina);
-      console.log("paginaAtual", this.paginaAtual);
-      console.log("usuariosDividos", this.usuariosDividos);
       if (this.paginaAtual === pagina)
         return console.log("Já está na página atual");
       this.usuariosParaListar = this.usuariosDividos[pagina - 1];
@@ -354,7 +384,6 @@ export default {
   text-align: center;
 }
 
-
 .container {
   position: relative;
   background-size: cover;
@@ -368,12 +397,11 @@ export default {
     rgb(243, 162, 137) 0%,
     #77a4e0 74%,
     #59c9a8 100%
-  ); 
+  );
   height: auto;
   width: 100vw;
   min-height: 800px;
   overflow: visible;
-  margin-block-end: -15%;
 }
 
 .table.table-dark.table-striped {

@@ -134,8 +134,11 @@ export default {
       return newArray;
     },
     async transacoesUser() {
+      if(this.verification == 1){
+        localStorage.setItem("entrei", 0);
+        window.location.reload();
+      }
       window.scrollBy(0, -5000);
-      localStorage.setItem("userEdit", 1);
       try {
         const response = await request(
           `/transations/`,
@@ -246,7 +249,6 @@ h1 {
   width: 100vw;
   min-height: 800px;
   overflow: visible;
-  margin-block-end: -15%;
 }
 
 .nav-bar {

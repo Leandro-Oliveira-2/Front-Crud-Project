@@ -101,6 +101,11 @@ export default {
       }
     },
     verificarUser() {
+      if(this.verification == 1){
+        localStorage.setItem("entrei", 0);
+        window.location.reload();
+      }
+      
       if (verific === null) {
         this.$router.push({ name: "about" });
         setInterval(() => {
@@ -109,8 +114,8 @@ export default {
       }
     },
     mudarPag() {
-      this.$router.push({ name: "betting" });
       localStorage.setItem("userEdit", 1);
+      this.$router.push({ name: "betting" });
     },
   },
 };

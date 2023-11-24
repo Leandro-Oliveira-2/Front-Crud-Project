@@ -110,6 +110,7 @@ export default {
       }
     },
     mudarPag() {
+      localStorage.setItem("entrei", 1);
       this.$router.push({ name: "betting" });
     },
   },

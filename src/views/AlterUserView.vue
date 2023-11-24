@@ -109,8 +109,8 @@ export default {
     },
     verificarUser() {
       console.log(userAlter)
-      if(localStorage.getItem('userEdit') == 1){
-        localStorage.setItem('userEdit', 0);
+      if(this.verification == 1){
+        localStorage.setItem("entrei", 0);
         window.location.reload();
       }
       if (verific === null) {

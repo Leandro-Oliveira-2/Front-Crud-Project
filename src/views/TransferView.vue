@@ -133,7 +133,10 @@ export default {
     },
     async listarUsers() {
       window.scrollBy(0, -5000);
-      localStorage.setItem("userEdit", 1);
+      if(this.verification == 1){
+        localStorage.setItem("entrei", 0);
+        window.location.reload();
+      }
       try {
         const response = await request(
           `/users/`,

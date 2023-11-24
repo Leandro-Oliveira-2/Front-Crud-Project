@@ -134,6 +134,8 @@ export default {
           saldo: 0,
           fidelidade: {
             dia: 0,
+            quantityRewards: 0,
+            rewardDates: [{ data: "", saldoAtual: 0 }],
           },
         },
       },
@@ -147,14 +149,19 @@ export default {
           "https://back-crud-project-production.up.railway.app/api/v1/auth/",
           this.userData
         );
+        console.log(response.data.user);
         this.userData.id = response.data.user.id;
         this.userData.accessToken = response.data.accessToken;
         this.userData.user.saldo = response.data.user.saldo;
+        this.userData.user.fidelidade = response.data.user.fidelidade;
+
         localStorage.setItem("UserId", response.data.user.id);
         localStorage.setItem("Usuario", JSON.stringify(response.data));
         localStorage.setItem("userEdit", 1);
         localStorage.setItem("entrei", 1);
+
         let dateFidelidade = new Date(response.data.user.fidelidade.data);
+        this.$emit("deposito", response.data.user.fidelidade);
         let ano = dateFidelidade.getFullYear();
         let mes = dateFidelidade.getMonth() + 1;
         let dia = dateFidelidade.getDate();
@@ -179,6 +186,7 @@ export default {
             dataSeguinte.getMonth() + 1 == mesNow &&
             dataSeguinte.getDate() == diaNow
           ) {
+            console.log("entrou");
             this.userData.user.fidelidade.dia =
               response.data.user.fidelidade.dia + 1;
             this.userData.user.fidelidade.data = new Date();
@@ -186,23 +194,64 @@ export default {
             this.userData.user.fidelidade.dia = 1;
             this.userData.user.fidelidade.data = new Date();
           }
-
           if (this.userData.user.fidelidade.dia == 5) {
-            this.userData.user.saldo = this.userData.user.saldo + 50;
+            this.userData.user.fidelidade.quantityRewards =
+              response.data.user.fidelidade.quantityRewards + 1;
+            this.userData.user.fidelidade.saldoAtual = response.data.user.saldo;
+
+            // Certifique-se de que rewardDates seja um array antes de acessar sua propriedade data
+            if (!this.userData.user.fidelidade.rewardDates) {
+              this.userData.user.fidelidade.rewardDates = [];
+            }
+
+            this.userData.user.fidelidade.rewardDates.push({
+              data: new Date(),
+              saldoAtual: response.data.user.saldo,
+            });
+
+            localStorage.setItem("fidelidade", true);
             this.userData.user.fidelidade.dia = 0;
           }
+          await this.userUpdate();
 
-          console.log(this.userData.user.fidelidade);
-          this.userUpdate();
+          this.$router.push({ name: "betting" });
         }
-
         this.$router.push({ name: "betting" });
       } catch (error) {
         console.log(error);
         Alert("Erro no login");
       }
     },
+    async deposito(userId, value) {
+      try {
+        await request(
+          `/transations/deposit`,
+          "POST",
+          {
+            userId: userId,
+            transationType: "Deposito",
+            description: "Recompensa de fidelidade",
+            value: value,
+            status: "Concluído",
+          },
+          userComplite.accessToken,
+          (r) => {
+            Alert(
+              "Parabéns! Você ganhou 50 reais de recompensa de fidelidade!"
+            );
+          },
+          (error) => {
+            if (error.response && error.response.status === 400) {
+              Alert("Valor Inválido!");
+            }
+          }
+        );
+      } catch (error) {
+        console.error(error); // Adicione esta linha
+      }
+    },
     async userUpdate() {
+      console.log("Formulário de login enviado!");
       try {
         request(
           `/users/${this.userData.id}`,
@@ -266,15 +315,14 @@ body {
   flex-direction: column; /* Alinhar o conteúdo verticalmente */
   justify-content: center; /* Centralizar verticalmente */
   align-items: center; /* Centralizar horizontalmente */
- background-image: linear-gradient(
+  background-image: linear-gradient(
     315deg,
     rgb(243, 162, 137) 0%,
     #77a4e0 74%,
     #59c9a8 100%
-  ); 
+  );
   height: 100vh; /* Ocupar toda a altura da tela */
   width: 100vw; /* Ocupar toda a largura da tela */
-
 }
 
 .custom-select {
